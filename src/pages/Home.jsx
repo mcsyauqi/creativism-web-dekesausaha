@@ -10,7 +10,6 @@ import {
   TrendingUp,
   Star,
   ChevronRight,
-  ChevronLeft,
   Sparkles,
   Zap,
   Heart,
@@ -50,44 +49,36 @@ function Counter({ end, duration = 2, suffix = '' }) {
 function Home() {
   const programs = [
     {
-      icon: BookOpen,
-      title: 'DEU Academy',
       emoji: '📚',
+      title: 'DEU Academy',
       description: 'Online courses bisnis yang practical dan to the point',
       features: ['Gratis & berbayar', 'Video courses', 'E-book & resources'],
       link: '/programs#academy',
-      bgColor: 'bg-amber-100',
-      iconColor: 'text-amber-600'
+      color: '#F59E0B'
     },
     {
-      icon: Target,
-      title: 'Mentorship',
       emoji: '🎯',
+      title: 'Mentorship',
       description: '1-on-1 guidance dengan praktisi dan pengusaha sukses',
       features: ['100+ mentors', 'Personal guidance', 'Real business advice'],
       link: '/programs#mentorship',
-      bgColor: 'bg-purple-100',
-      iconColor: 'text-purple-600'
+      color: '#8B5CF6'
     },
     {
-      icon: Users,
-      title: 'Community',
       emoji: '👥',
+      title: 'Community',
       description: 'Network dengan sesama pejuang bisnis muda',
       features: ['Support system', 'Collaboration', 'Job/project board'],
       link: '/community',
-      bgColor: 'bg-green-100',
-      iconColor: 'text-green-600'
+      color: '#10B981'
     },
     {
-      icon: Calendar,
-      title: 'Events',
       emoji: '🎪',
+      title: 'Events',
       description: 'Workshop offline, webinar, dan networking night',
       features: ['Business competition', 'Annual summit', 'Meetups'],
       link: '/events',
-      bgColor: 'bg-pink-100',
-      iconColor: 'text-pink-600'
+      color: '#EC4899'
     }
   ]
 
@@ -124,30 +115,24 @@ function Home() {
       title: 'Bisnis 101: Mindset & Fundamental',
       description: 'Fondasi mindset pengusaha sukses',
       tag: 'GRATIS',
-      tagBg: 'bg-green-100',
-      tagColor: 'text-green-600',
       price: 'FREE',
-      gradient: 'gradient-bg'
+      color: '#10B981'
     },
     {
       icon: Sparkles,
       title: 'Digital Marketing for Beginners',
       description: 'Kuasai social media & ads dari nol',
       tag: 'POPULER',
-      tagBg: 'bg-amber-100',
-      tagColor: 'text-amber-600',
       price: 'Rp 149K',
-      gradient: 'gradient-bg-reverse'
+      color: '#F59E0B'
     },
     {
       icon: TrendingUp,
       title: 'Financial Literacy',
       description: 'Kelola keuangan bisnis dengan benar',
       tag: 'BEST SELLER',
-      tagBg: 'bg-purple-100',
-      tagColor: 'text-purple-600',
       price: 'Rp 99K',
-      gradient: 'gradient-green'
+      color: '#8B5CF6'
     }
   ]
 
@@ -158,7 +143,6 @@ function Home() {
       title: 'Workshop: Build Your Personal Brand',
       type: 'Offline Jakarta',
       time: '14:00 WIB',
-      free: false,
       price: 'Rp 75K'
     },
     {
@@ -167,7 +151,7 @@ function Home() {
       title: 'Webinar: From 0 to First 1M Revenue',
       type: 'Online Zoom',
       time: '19:00 WIB',
-      free: true
+      price: 'FREE'
     },
     {
       day: '03',
@@ -175,7 +159,6 @@ function Home() {
       title: 'DEU Networking Night Jakarta',
       type: 'Offline Jakarta',
       time: '18:00 WIB',
-      free: false,
       price: 'Rp 50K'
     }
   ]
@@ -187,78 +170,107 @@ function Home() {
     { number: 1000, suffix: '+', label: 'Alumni Bisnis Aktif' }
   ]
 
-  const partners = [
-    'Universitas Indonesia', 'ITB', 'UGM', 'Tokopedia', 'Gojek', 'BCA', 'Telkomsel'
+  const partners = ['Universitas Indonesia', 'ITB', 'UGM', 'Tokopedia', 'Gojek', 'BCA', 'Telkomsel']
+
+  const whyReasons = [
+    {
+      icon: TrendingUp,
+      stat: '70%',
+      title: 'Successful entrepreneurs mulai sebelum usia 30',
+      description: 'Usia muda adalah waktu terbaik untuk ambil risiko dan belajar dari kegagalan.'
+    },
+    {
+      icon: Zap,
+      stat: 'Rp 0',
+      title: 'Modal bukan hambatan - banyak bisnis mulai dari 0 rupiah',
+      description: 'Di era digital, skill dan kreativitas lebih penting dari modal besar.'
+    },
+    {
+      icon: Users,
+      stat: '∞',
+      title: 'Network = Net Worth - komunitas yang tepat bikin beda',
+      description: 'Dengan network yang tepat, kamu bisa dapat mentor, partner, bahkan investor.'
+    }
   ]
 
   return (
-    <div className="overflow-x-hidden">
+    <div style={{ overflowX: 'hidden' }}>
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-20" style={{ background: 'linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 50%, #F5F3FF 100%)' }}>
-        {/* Background Decorations */}
-        <div className="absolute top-20 right-0 w-64 h-64 md:w-96 md:h-96 bg-amber-200 rounded-full blur-3xl opacity-30"></div>
-        <div className="absolute bottom-0 left-0 w-64 h-64 md:w-96 md:h-96 bg-purple-200 rounded-full blur-3xl opacity-30"></div>
+      <section style={{
+        background: 'linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 50%, #F5F3FF 100%)',
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        paddingTop: '80px',
+        position: 'relative'
+      }}>
+        <div style={{
+          position: 'absolute', top: '80px', right: 0, width: '300px', height: '300px',
+          background: '#FDE68A', borderRadius: '50%', filter: 'blur(100px)', opacity: 0.4
+        }} />
+        <div style={{
+          position: 'absolute', bottom: 0, left: 0, width: '300px', height: '300px',
+          background: '#DDD6FE', borderRadius: '50%', filter: 'blur(100px)', opacity: 0.4
+        }} />
 
-        <div className="section-container w-full py-12 lg:py-20">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '40px 20px', width: '100%', position: 'relative' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '48px', alignItems: 'center' }}>
             {/* Text Content */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="order-2 lg:order-1"
             >
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="inline-flex items-center gap-2 bg-amber-100 text-amber-700 px-4 py-2 rounded-full text-sm font-medium mb-6"
-              >
+              <div style={{
+                display: 'inline-flex', alignItems: 'center', gap: '8px',
+                background: '#FEF3C7', color: '#B45309', padding: '8px 16px',
+                borderRadius: '50px', fontSize: '14px', fontWeight: 500, marginBottom: '24px'
+              }}>
                 <Sparkles size={16} />
                 Platform #1 untuk Young Entrepreneurs Indonesia
-              </motion.div>
+              </div>
 
-              <h1 className="font-nunito text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6 leading-tight">
+              <h1 style={{
+                fontFamily: 'Nunito, sans-serif', fontSize: 'clamp(36px, 5vw, 56px)',
+                fontWeight: 900, color: '#1F2937', marginBottom: '24px', lineHeight: 1.1
+              }}>
                 Anak Muda <span className="gradient-text">Bisa</span>,<br />
                 Anak Muda <span className="gradient-text">Usaha!</span>
               </h1>
 
-              <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
+              <p style={{ fontSize: '18px', color: '#4B5563', marginBottom: '32px', lineHeight: 1.7 }}>
                 Platform untuk belajar bisnis, dapat mentor, dan join komunitas wirausaha muda Indonesia.
-                <span className="font-semibold text-amber-600"> Dari nol sampai cuan!</span>
+                <span style={{ fontWeight: 600, color: '#F59E0B' }}> Dari nol sampai cuan!</span>
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Link to="/community" className="btn-primary text-lg gap-2">
-                    <Rocket size={20} />
-                    Gabung Sekarang (GRATIS)
-                  </Link>
-                </motion.div>
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Link to="/programs" className="btn-secondary text-lg gap-2">
-                    Explore Programs
-                    <ArrowRight size={20} />
-                  </Link>
-                </motion.div>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', marginBottom: '32px' }}>
+                <Link to="/community" className="btn-primary" style={{ fontSize: '16px', gap: '8px' }}>
+                  <Rocket size={20} />
+                  Gabung Sekarang (GRATIS)
+                </Link>
+                <Link to="/programs" className="btn-secondary" style={{ fontSize: '16px', gap: '8px' }}>
+                  Explore Programs
+                  <ArrowRight size={20} />
+                </Link>
               </div>
 
-              {/* Social Proof */}
-              <div className="flex items-center gap-4">
-                <div className="flex -space-x-3">
-                  {['A', 'B', 'C', 'D', 'E'].map((letter, i) => (
-                    <div
-                      key={i}
-                      className="w-10 h-10 rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold"
-                      style={{ background: `linear-gradient(135deg, ${['#F59E0B', '#8B5CF6', '#10B981', '#EC4899', '#3B82F6'][i]} 0%, ${['#D97706', '#7C3AED', '#059669', '#DB2777', '#2563EB'][i]} 100%)` }}
-                    >
-                      {letter}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                <div style={{ display: 'flex' }}>
+                  {['#F59E0B', '#8B5CF6', '#10B981', '#EC4899', '#3B82F6'].map((color, i) => (
+                    <div key={i} style={{
+                      width: '40px', height: '40px', borderRadius: '50%',
+                      background: color, border: '3px solid white',
+                      marginLeft: i > 0 ? '-12px' : 0, display: 'flex',
+                      alignItems: 'center', justifyContent: 'center',
+                      color: 'white', fontSize: '12px', fontWeight: 700
+                    }}>
+                      {String.fromCharCode(65 + i)}
                     </div>
                   ))}
                 </div>
                 <div>
-                  <p className="font-bold text-gray-800">10,000+ Young Entrepreneurs</p>
-                  <p className="text-sm text-gray-500">sudah bergabung!</p>
+                  <p style={{ fontWeight: 700, color: '#1F2937' }}>10,000+ Young Entrepreneurs</p>
+                  <p style={{ fontSize: '14px', color: '#6B7280' }}>sudah bergabung!</p>
                 </div>
               </div>
             </motion.div>
@@ -268,75 +280,85 @@ function Home() {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="order-1 lg:order-2 flex justify-center"
+              style={{ display: 'flex', justifyContent: 'center' }}
             >
-              <div className="relative w-full max-w-md">
-                {/* Main Circle */}
-                <div className="relative aspect-square">
-                  <div className="absolute inset-0 rounded-full opacity-20" style={{ background: 'linear-gradient(135deg, #F59E0B 0%, #8B5CF6 100%)' }}></div>
-                  <div className="absolute inset-4 md:inset-8 bg-white rounded-full shadow-2xl flex items-center justify-center">
-                    <div className="text-center p-4 md:p-8">
-                      <motion.div
-                        animate={{ scale: [1, 1.1, 1] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                        className="text-6xl md:text-8xl mb-4"
-                      >
-                        🚀
-                      </motion.div>
-                      <p className="font-nunito font-bold text-xl md:text-2xl gradient-text">Start Your Journey</p>
-                      <p className="text-gray-500 text-sm md:text-base mt-2">Mulai bisnismu hari ini!</p>
-                    </div>
+              <div style={{ position: 'relative', width: '100%', maxWidth: '400px', aspectRatio: '1' }}>
+                <div style={{
+                  position: 'absolute', inset: 0, borderRadius: '50%',
+                  background: 'linear-gradient(135deg, #F59E0B 0%, #8B5CF6 100%)', opacity: 0.15
+                }} />
+                <div style={{
+                  position: 'absolute', inset: '32px', background: 'white', borderRadius: '50%',
+                  boxShadow: '0 25px 50px -12px rgba(0,0,0,0.15)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center'
+                }}>
+                  <div style={{ textAlign: 'center', padding: '24px' }}>
+                    <motion.div
+                      animate={{ scale: [1, 1.1, 1] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                      style={{ fontSize: '80px', marginBottom: '16px' }}
+                    >
+                      🚀
+                    </motion.div>
+                    <p className="gradient-text" style={{ fontFamily: 'Nunito', fontWeight: 800, fontSize: '24px' }}>Start Your Journey</p>
+                    <p style={{ color: '#6B7280', marginTop: '8px' }}>Mulai bisnismu hari ini!</p>
                   </div>
-
-                  {/* Floating Cards */}
-                  <motion.div
-                    animate={{ y: [0, -10, 0] }}
-                    transition={{ duration: 3, repeat: Infinity }}
-                    className="absolute -top-2 -right-2 md:-top-4 md:-right-4 bg-white rounded-xl md:rounded-2xl p-3 md:p-4 shadow-xl"
-                  >
-                    <div className="flex items-center gap-2 md:gap-3">
-                      <div className="w-10 h-10 md:w-12 md:h-12 bg-green-100 rounded-lg md:rounded-xl flex items-center justify-center">
-                        <TrendingUp className="text-green-600 w-5 h-5 md:w-6 md:h-6" />
-                      </div>
-                      <div>
-                        <p className="text-xs md:text-sm text-gray-500">Revenue</p>
-                        <p className="font-bold text-green-600 text-sm md:text-base">+250%</p>
-                      </div>
-                    </div>
-                  </motion.div>
-
-                  <motion.div
-                    animate={{ y: [0, 10, 0] }}
-                    transition={{ duration: 4, repeat: Infinity }}
-                    className="absolute -bottom-2 -left-2 md:-bottom-4 md:-left-4 bg-white rounded-xl md:rounded-2xl p-3 md:p-4 shadow-xl"
-                  >
-                    <div className="flex items-center gap-2 md:gap-3">
-                      <div className="w-10 h-10 md:w-12 md:h-12 bg-purple-100 rounded-lg md:rounded-xl flex items-center justify-center">
-                        <Users className="text-purple-600 w-5 h-5 md:w-6 md:h-6" />
-                      </div>
-                      <div>
-                        <p className="text-xs md:text-sm text-gray-500">Community</p>
-                        <p className="font-bold text-purple-600 text-sm md:text-base">10K+</p>
-                      </div>
-                    </div>
-                  </motion.div>
-
-                  <motion.div
-                    animate={{ y: [0, -8, 0] }}
-                    transition={{ duration: 3.5, repeat: Infinity }}
-                    className="absolute top-1/2 -right-4 md:-right-8 -translate-y-1/2 bg-white rounded-xl md:rounded-2xl p-3 md:p-4 shadow-xl hidden sm:block"
-                  >
-                    <div className="flex items-center gap-2 md:gap-3">
-                      <div className="w-10 h-10 md:w-12 md:h-12 bg-amber-100 rounded-lg md:rounded-xl flex items-center justify-center">
-                        <Star className="text-amber-600 w-5 h-5 md:w-6 md:h-6" />
-                      </div>
-                      <div>
-                        <p className="text-xs md:text-sm text-gray-500">Rating</p>
-                        <p className="font-bold text-amber-600 text-sm md:text-base">4.9/5</p>
-                      </div>
-                    </div>
-                  </motion.div>
                 </div>
+
+                {/* Floating Cards */}
+                <motion.div
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                  style={{
+                    position: 'absolute', top: '-16px', right: '-16px',
+                    background: 'white', borderRadius: '16px', padding: '12px 16px',
+                    boxShadow: '0 10px 40px rgba(0,0,0,0.1)', display: 'flex', alignItems: 'center', gap: '12px'
+                  }}
+                >
+                  <div style={{ width: '44px', height: '44px', background: '#D1FAE5', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <TrendingUp style={{ color: '#059669' }} size={22} />
+                  </div>
+                  <div>
+                    <p style={{ fontSize: '12px', color: '#6B7280' }}>Revenue</p>
+                    <p style={{ fontWeight: 700, color: '#059669' }}>+250%</p>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  animate={{ y: [0, 10, 0] }}
+                  transition={{ duration: 4, repeat: Infinity }}
+                  style={{
+                    position: 'absolute', bottom: '-16px', left: '-16px',
+                    background: 'white', borderRadius: '16px', padding: '12px 16px',
+                    boxShadow: '0 10px 40px rgba(0,0,0,0.1)', display: 'flex', alignItems: 'center', gap: '12px'
+                  }}
+                >
+                  <div style={{ width: '44px', height: '44px', background: '#EDE9FE', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <Users style={{ color: '#7C3AED' }} size={22} />
+                  </div>
+                  <div>
+                    <p style={{ fontSize: '12px', color: '#6B7280' }}>Community</p>
+                    <p style={{ fontWeight: 700, color: '#7C3AED' }}>10K+</p>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  animate={{ y: [0, -8, 0] }}
+                  transition={{ duration: 3.5, repeat: Infinity }}
+                  style={{
+                    position: 'absolute', top: '50%', right: '-48px', transform: 'translateY(-50%)',
+                    background: 'white', borderRadius: '16px', padding: '12px 16px',
+                    boxShadow: '0 10px 40px rgba(0,0,0,0.1)', display: 'flex', alignItems: 'center', gap: '12px'
+                  }}
+                >
+                  <div style={{ width: '44px', height: '44px', background: '#FEF3C7', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <Star style={{ color: '#D97706' }} size={22} />
+                  </div>
+                  <div>
+                    <p style={{ fontSize: '12px', color: '#6B7280' }}>Rating</p>
+                    <p style={{ fontWeight: 700, color: '#D97706' }}>4.9/5</p>
+                  </div>
+                </motion.div>
               </div>
             </motion.div>
           </div>
@@ -344,23 +366,22 @@ function Home() {
       </section>
 
       {/* Program Highlights */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="section-container">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="font-nunito text-3xl md:text-4xl font-black text-gray-900 mb-4">
+      <section style={{ padding: '80px 20px', background: 'white' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+            <h2 style={{ fontFamily: 'Nunito', fontSize: '36px', fontWeight: 900, color: '#1F2937', marginBottom: '16px' }}>
               Program <span className="gradient-text">Unggulan</span> Kami
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p style={{ color: '#6B7280', maxWidth: '600px', margin: '0 auto' }}>
               Dari belajar sampai praktek, kita ada di setiap step perjalananmu menuju sukses bisnis
             </p>
-          </motion.div>
+          </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(4, 1fr)',
+            gap: '24px'
+          }}>
             {programs.map((program, index) => (
               <motion.div
                 key={program.title}
@@ -368,49 +389,81 @@ function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 card-hover"
+                style={{
+                  background: 'white', borderRadius: '20px', padding: '28px',
+                  boxShadow: '0 4px 20px rgba(0,0,0,0.08)', border: '1px solid #F3F4F6',
+                  transition: 'all 0.3s ease'
+                }}
+                className="card-hover"
               >
-                <div className={`w-14 h-14 rounded-xl ${program.bgColor} flex items-center justify-center mb-4 text-2xl`}>
+                <div style={{
+                  width: '56px', height: '56px', borderRadius: '16px',
+                  background: `${program.color}15`, display: 'flex',
+                  alignItems: 'center', justifyContent: 'center',
+                  fontSize: '28px', marginBottom: '20px'
+                }}>
                   {program.emoji}
                 </div>
-                <h3 className="font-nunito font-bold text-xl text-gray-800 mb-2">{program.title}</h3>
-                <p className="text-gray-600 text-sm mb-4">{program.description}</p>
-                <ul className="space-y-2 mb-4">
+                <h3 style={{ fontFamily: 'Nunito', fontWeight: 800, fontSize: '20px', color: '#1F2937', marginBottom: '12px' }}>
+                  {program.title}
+                </h3>
+                <p style={{ color: '#6B7280', fontSize: '14px', marginBottom: '16px', lineHeight: 1.6 }}>
+                  {program.description}
+                </p>
+                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 20px 0' }}>
                   {program.features.map((feature, i) => (
-                    <li key={i} className="flex items-center gap-2 text-sm text-gray-500">
-                      <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                    <li key={i} style={{
+                      display: 'flex', alignItems: 'center', gap: '8px',
+                      fontSize: '13px', color: '#6B7280', marginBottom: '8px'
+                    }}>
+                      <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: program.color }} />
                       {feature}
                     </li>
                   ))}
                 </ul>
-                <Link to={program.link} className="inline-flex items-center gap-1 text-amber-500 font-medium text-sm hover:gap-2 transition-all">
+                <Link to={program.link} style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '4px',
+                  color: '#F59E0B', fontWeight: 600, fontSize: '14px', textDecoration: 'none'
+                }}>
                   Explore <ChevronRight size={16} />
                 </Link>
               </motion.div>
             ))}
           </div>
         </div>
+
+        <style>{`
+          @media (max-width: 1024px) {
+            section > div > div:last-child {
+              grid-template-columns: repeat(2, 1fr) !important;
+            }
+          }
+          @media (max-width: 640px) {
+            section > div > div:last-child {
+              grid-template-columns: 1fr !important;
+            }
+          }
+        `}</style>
       </section>
 
       {/* Success Stories */}
-      <section className="py-16 md:py-20" style={{ background: 'linear-gradient(135deg, #FFFBEB 0%, #F5F3FF 100%)' }}>
-        <div className="section-container">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="font-nunito text-3xl md:text-4xl font-black text-gray-900 mb-4">
+      <section style={{ padding: '80px 20px', background: 'linear-gradient(135deg, #FFFBEB 0%, #F5F3FF 100%)' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+            <h2 style={{ fontFamily: 'Nunito', fontSize: '36px', fontWeight: 900, color: '#1F2937', marginBottom: '16px' }}>
               Cerita <span className="gradient-text">Sukses</span> Mereka
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p style={{ color: '#6B7280', maxWidth: '600px', margin: '0 auto' }}>
               Mereka mulai dari nol, sekarang bisnisnya growing. Kamu bisa jadi yang selanjutnya!
             </p>
-          </motion.div>
+          </div>
 
-          {/* Stories Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(4, 1fr)',
+            gap: '24px',
+            marginBottom: '40px'
+          }}>
             {successStories.map((story, index) => (
               <motion.div
                 key={index}
@@ -418,145 +471,172 @@ function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-2xl p-6 shadow-lg card-hover"
+                style={{
+                  background: 'white', borderRadius: '20px', padding: '24px',
+                  boxShadow: '0 4px 20px rgba(0,0,0,0.08)'
+                }}
+                className="card-hover"
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-full gradient-bg flex items-center justify-center text-white text-lg font-bold">
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
+                  <div className="gradient-bg" style={{
+                    width: '48px', height: '48px', borderRadius: '50%',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    color: 'white', fontWeight: 700, fontSize: '18px'
+                  }}>
                     {story.name.charAt(0)}
                   </div>
                   <div>
-                    <h4 className="font-nunito font-bold text-gray-800 text-sm">{story.name}</h4>
-                    <p className="text-xs text-gray-500">{story.business}</p>
+                    <h4 style={{ fontFamily: 'Nunito', fontWeight: 700, color: '#1F2937', fontSize: '14px' }}>{story.name}</h4>
+                    <p style={{ fontSize: '12px', color: '#6B7280' }}>{story.business}</p>
                   </div>
                 </div>
-                <p className="text-gray-600 text-sm mb-4 line-clamp-3">{story.quote}</p>
-                <div className="flex items-center gap-2 text-amber-500">
+                <p style={{ color: '#4B5563', fontSize: '14px', marginBottom: '16px', lineHeight: 1.6 }}>
+                  "{story.quote}"
+                </p>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#F59E0B' }}>
                   <TrendingUp size={16} />
-                  <span className="text-sm font-medium">{story.achievement}</span>
+                  <span style={{ fontSize: '13px', fontWeight: 600 }}>{story.achievement}</span>
                 </div>
               </motion.div>
             ))}
           </div>
 
-          <div className="text-center">
-            <Link to="/success-stories">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="btn-secondary gap-2"
-              >
-                Lihat Semua Cerita Sukses
-                <ArrowRight size={18} />
-              </motion.button>
+          <div style={{ textAlign: 'center' }}>
+            <Link to="/success-stories" className="btn-secondary" style={{ gap: '8px' }}>
+              Lihat Semua Cerita Sukses
+              <ArrowRight size={18} />
             </Link>
           </div>
         </div>
+
+        <style>{`
+          @media (max-width: 1024px) {
+            section:nth-of-type(2) > div > div:nth-child(2) {
+              grid-template-columns: repeat(2, 1fr) !important;
+            }
+          }
+          @media (max-width: 640px) {
+            section:nth-of-type(2) > div > div:nth-child(2) {
+              grid-template-columns: 1fr !important;
+            }
+          }
+        `}</style>
       </section>
 
       {/* Why Dek Esa Usaha */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="section-container">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="font-nunito text-3xl md:text-4xl font-black text-gray-900 mb-4">
+      <section style={{ padding: '80px 20px', background: 'white' }}>
+        <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+            <h2 style={{ fontFamily: 'Nunito', fontSize: '36px', fontWeight: 900, color: '#1F2937' }}>
               Kenapa Harus <span className="gradient-text">Mulai Usaha</span> Sekarang?
             </h2>
-          </motion.div>
+          </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: TrendingUp,
-                stat: '70%',
-                title: 'Successful entrepreneurs mulai sebelum usia 30',
-                description: 'Usia muda adalah waktu terbaik untuk ambil risiko dan belajar dari kegagalan.'
-              },
-              {
-                icon: Zap,
-                stat: 'Rp 0',
-                title: 'Modal bukan hambatan - banyak bisnis mulai dari 0 rupiah',
-                description: 'Di era digital, skill dan kreativitas lebih penting dari modal besar.'
-              },
-              {
-                icon: Users,
-                stat: '∞',
-                title: 'Network = Net Worth - komunitas yang tepat bikin beda',
-                description: 'Dengan network yang tepat, kamu bisa dapat mentor, partner, bahkan investor.'
-              }
-            ].map((item, index) => (
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3, 1fr)',
+            gap: '40px'
+          }}>
+            {whyReasons.map((item, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="text-center p-6"
+                style={{ textAlign: 'center' }}
               >
-                <div className="w-20 h-20 gradient-bg rounded-2xl mx-auto mb-4 flex items-center justify-center">
-                  <item.icon className="w-10 h-10 text-white" />
+                <div className="gradient-bg" style={{
+                  width: '80px', height: '80px', borderRadius: '20px',
+                  margin: '0 auto 20px', display: 'flex',
+                  alignItems: 'center', justifyContent: 'center'
+                }}>
+                  <item.icon style={{ color: 'white' }} size={40} />
                 </div>
-                <div className="text-4xl font-black gradient-text mb-2">{item.stat}</div>
-                <h3 className="font-nunito font-bold text-lg text-gray-800 mb-2">{item.title}</h3>
-                <p className="text-gray-500 text-sm">{item.description}</p>
+                <div className="gradient-text" style={{ fontSize: '40px', fontWeight: 900, marginBottom: '12px' }}>
+                  {item.stat}
+                </div>
+                <h3 style={{ fontFamily: 'Nunito', fontWeight: 700, fontSize: '16px', color: '#1F2937', marginBottom: '12px', lineHeight: 1.4 }}>
+                  {item.title}
+                </h3>
+                <p style={{ color: '#6B7280', fontSize: '14px', lineHeight: 1.6 }}>
+                  {item.description}
+                </p>
               </motion.div>
             ))}
           </div>
         </div>
+
+        <style>{`
+          @media (max-width: 768px) {
+            section:nth-of-type(3) > div > div:last-child {
+              grid-template-columns: 1fr !important;
+              gap: 32px !important;
+            }
+          }
+        `}</style>
       </section>
 
       {/* Featured Courses */}
-      <section className="py-16 md:py-20" style={{ background: 'linear-gradient(135deg, #F5F3FF 0%, #FFFBEB 100%)' }}>
-        <div className="section-container">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-12"
-          >
+      <section style={{ padding: '80px 20px', background: 'linear-gradient(135deg, #F5F3FF 0%, #FFFBEB 100%)' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px', marginBottom: '40px' }}>
             <div>
-              <h2 className="font-nunito text-3xl md:text-4xl font-black text-gray-900 mb-2">
+              <h2 style={{ fontFamily: 'Nunito', fontSize: '36px', fontWeight: 900, color: '#1F2937', marginBottom: '8px' }}>
                 Courses <span className="gradient-text">Populer</span>
               </h2>
-              <p className="text-gray-600">Pelajari skill bisnis yang langsung bisa dipraktekkan</p>
+              <p style={{ color: '#6B7280' }}>Pelajari skill bisnis yang langsung bisa dipraktekkan</p>
             </div>
-            <Link to="/programs">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="btn-secondary gap-2"
-              >
-                Lihat Semua
-                <ArrowRight size={18} />
-              </motion.button>
+            <Link to="/programs" className="btn-secondary" style={{ gap: '8px' }}>
+              Lihat Semua
+              <ArrowRight size={18} />
             </Link>
-          </motion.div>
+          </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3, 1fr)',
+            gap: '24px'
+          }}>
             {courses.map((course, index) => (
               <motion.div
                 key={course.title}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-2xl overflow-hidden shadow-lg card-hover"
+                style={{
+                  background: 'white', borderRadius: '20px', overflow: 'hidden',
+                  boxShadow: '0 4px 20px rgba(0,0,0,0.08)'
+                }}
+                className="card-hover"
               >
-                <div className={`h-32 ${course.gradient} flex items-center justify-center`}>
-                  <course.icon className="w-12 h-12 text-white opacity-80" />
+                <div style={{
+                  height: '140px',
+                  background: index === 0 ? 'linear-gradient(135deg, #F59E0B 0%, #8B5CF6 100%)' :
+                             index === 1 ? 'linear-gradient(135deg, #8B5CF6 0%, #F59E0B 100%)' :
+                             'linear-gradient(135deg, #10B981 0%, #F59E0B 100%)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center'
+                }}>
+                  <course.icon style={{ color: 'white', opacity: 0.9 }} size={48} />
                 </div>
-                <div className="p-5">
-                  <span className={`text-xs font-medium px-2 py-1 rounded-full ${course.tagBg} ${course.tagColor}`}>
+                <div style={{ padding: '24px' }}>
+                  <span style={{
+                    fontSize: '11px', fontWeight: 600, padding: '4px 10px', borderRadius: '50px',
+                    background: course.color === '#10B981' ? '#D1FAE5' : course.color === '#F59E0B' ? '#FEF3C7' : '#EDE9FE',
+                    color: course.color
+                  }}>
                     {course.tag}
                   </span>
-                  <h4 className="font-nunito font-bold text-gray-800 mt-3 mb-2">{course.title}</h4>
-                  <p className="text-gray-500 text-sm mb-3">{course.description}</p>
-                  <div className="flex items-center justify-between">
-                    <span className={`font-bold ${course.price === 'FREE' ? 'text-green-600' : 'text-amber-500'}`}>{course.price}</span>
-                    <Link to="/programs" className="text-sm text-purple-600 font-medium hover:underline">
+                  <h4 style={{ fontFamily: 'Nunito', fontWeight: 800, color: '#1F2937', fontSize: '16px', margin: '16px 0 8px' }}>
+                    {course.title}
+                  </h4>
+                  <p style={{ color: '#6B7280', fontSize: '14px', marginBottom: '16px' }}>{course.description}</p>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span style={{ fontWeight: 700, color: course.price === 'FREE' ? '#10B981' : '#F59E0B' }}>
+                      {course.price}
+                    </span>
+                    <Link to="/programs" style={{ fontSize: '13px', color: '#8B5CF6', fontWeight: 600, textDecoration: 'none' }}>
                       Lihat Detail
                     </Link>
                   </div>
@@ -565,25 +645,34 @@ function Home() {
             ))}
           </div>
         </div>
+
+        <style>{`
+          @media (max-width: 900px) {
+            section:nth-of-type(4) > div > div:last-child {
+              grid-template-columns: repeat(2, 1fr) !important;
+            }
+          }
+          @media (max-width: 640px) {
+            section:nth-of-type(4) > div > div:last-child {
+              grid-template-columns: 1fr !important;
+            }
+          }
+        `}</style>
       </section>
 
       {/* Upcoming Events */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="section-container">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="font-nunito text-3xl md:text-4xl font-black text-gray-900 mb-4">
+      <section style={{ padding: '80px 20px', background: 'white' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
+            <div>
+              <h2 style={{ fontFamily: 'Nunito', fontSize: '36px', fontWeight: 900, color: '#1F2937', marginBottom: '16px' }}>
                 Upcoming <span className="gradient-text">Events</span>
               </h2>
-              <p className="text-gray-600 mb-8">
+              <p style={{ color: '#6B7280', marginBottom: '32px', lineHeight: 1.7 }}>
                 Jangan sampai ketinggalan! Workshop, webinar, dan networking events yang bikin kamu makin jago.
               </p>
 
-              <div className="space-y-4">
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                 {upcomingEvents.map((event, index) => (
                   <motion.div
                     key={index}
@@ -591,79 +680,102 @@ function Home() {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="flex gap-4 bg-gray-50 rounded-xl p-4 hover:bg-gray-100 transition-colors"
+                    style={{
+                      display: 'flex', gap: '16px', background: '#F9FAFB',
+                      borderRadius: '16px', padding: '16px', alignItems: 'center'
+                    }}
                   >
-                    <div className="flex-shrink-0 w-16 h-16 gradient-bg rounded-xl flex flex-col items-center justify-center text-white">
-                      <span className="text-xl font-bold leading-none">{event.day}</span>
-                      <span className="text-xs">{event.month}</span>
+                    <div className="gradient-bg" style={{
+                      width: '60px', height: '60px', borderRadius: '12px', flexShrink: 0,
+                      display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', color: 'white'
+                    }}>
+                      <span style={{ fontSize: '20px', fontWeight: 700, lineHeight: 1 }}>{event.day}</span>
+                      <span style={{ fontSize: '11px' }}>{event.month}</span>
                     </div>
-                    <div className="flex-grow min-w-0">
-                      <h4 className="font-nunito font-bold text-gray-800 text-sm mb-1 truncate">{event.title}</h4>
-                      <p className="text-gray-500 text-xs mb-2">{event.type} • {event.time}</p>
-                      <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${event.free ? 'bg-green-100 text-green-600' : 'bg-amber-100 text-amber-600'}`}>
-                        {event.free ? 'FREE' : event.price}
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <h4 style={{ fontFamily: 'Nunito', fontWeight: 700, color: '#1F2937', fontSize: '14px', marginBottom: '4px' }}>
+                        {event.title}
+                      </h4>
+                      <p style={{ fontSize: '12px', color: '#6B7280', marginBottom: '8px' }}>
+                        {event.type} • {event.time}
+                      </p>
+                      <span style={{
+                        fontSize: '11px', fontWeight: 600, padding: '4px 10px', borderRadius: '50px',
+                        background: event.price === 'FREE' ? '#D1FAE5' : '#FEF3C7',
+                        color: event.price === 'FREE' ? '#059669' : '#D97706'
+                      }}>
+                        {event.price}
                       </span>
                     </div>
                   </motion.div>
                 ))}
               </div>
 
-              <Link to="/events" className="inline-block mt-6">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="btn-primary gap-2"
-                >
-                  <Calendar size={18} />
-                  Lihat Semua Events
-                </motion.button>
+              <Link to="/events" className="btn-primary" style={{ marginTop: '24px', gap: '8px' }}>
+                <Calendar size={18} />
+                Lihat Semua Events
               </Link>
-            </motion.div>
+            </div>
 
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="hidden lg:flex items-center justify-center"
+              style={{ display: 'flex', justifyContent: 'center' }}
             >
-              <div className="aspect-square w-full max-w-md rounded-3xl p-8" style={{ background: 'linear-gradient(135deg, #FEF3C7 0%, #EDE9FE 100%)' }}>
-                <div className="w-full h-full bg-white rounded-2xl shadow-xl flex items-center justify-center">
-                  <div className="text-center">
+              <div style={{
+                width: '100%', maxWidth: '400px', aspectRatio: '1', borderRadius: '24px',
+                background: 'linear-gradient(135deg, #FEF3C7 0%, #EDE9FE 100%)', padding: '32px'
+              }}>
+                <div style={{
+                  width: '100%', height: '100%', background: 'white', borderRadius: '16px',
+                  boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center'
+                }}>
+                  <div style={{ textAlign: 'center' }}>
                     <motion.div
                       animate={{ rotate: [0, 10, -10, 0] }}
                       transition={{ duration: 2, repeat: Infinity }}
-                      className="text-7xl md:text-8xl mb-4"
+                      style={{ fontSize: '80px', marginBottom: '16px' }}
                     >
                       🎉
                     </motion.div>
-                    <p className="font-nunito font-bold text-xl text-gray-800">100+ Events</p>
-                    <p className="text-gray-500">setiap tahunnya!</p>
+                    <p style={{ fontFamily: 'Nunito', fontWeight: 800, fontSize: '24px', color: '#1F2937' }}>100+ Events</p>
+                    <p style={{ color: '#6B7280' }}>setiap tahunnya!</p>
                   </div>
                 </div>
               </div>
             </motion.div>
           </div>
         </div>
+
+        <style>{`
+          @media (max-width: 900px) {
+            section:nth-of-type(5) > div > div {
+              grid-template-columns: 1fr !important;
+            }
+            section:nth-of-type(5) > div > div > div:last-child {
+              display: none !important;
+            }
+          }
+        `}</style>
       </section>
 
       {/* Community Stats */}
-      <section className="py-16 md:py-20 gradient-bg">
-        <div className="section-container">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="font-nunito text-3xl md:text-4xl font-black text-white mb-4">
-              Komunitas yang Terus Bertumbuh
-            </h2>
-            <p className="text-white/80 max-w-2xl mx-auto">
-              Bergabunglah dengan ribuan anak muda Indonesia yang sudah memulai perjalanan bisnisnya
-            </p>
-          </motion.div>
+      <section className="gradient-bg" style={{ padding: '80px 20px' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'center' }}>
+          <h2 style={{ fontFamily: 'Nunito', fontSize: '36px', fontWeight: 900, color: 'white', marginBottom: '16px' }}>
+            Komunitas yang Terus Bertumbuh
+          </h2>
+          <p style={{ color: 'rgba(255,255,255,0.8)', maxWidth: '600px', margin: '0 auto 48px' }}>
+            Bergabunglah dengan ribuan anak muda Indonesia yang sudah memulai perjalanan bisnisnya
+          </p>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(4, 1fr)',
+            gap: '32px'
+          }}>
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
@@ -671,100 +783,93 @@ function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="text-center"
               >
-                <div className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-2">
+                <div style={{ fontSize: '48px', fontWeight: 900, color: 'white', marginBottom: '8px' }}>
                   <Counter end={stat.number} suffix={stat.suffix} />
                 </div>
-                <p className="text-white/80 text-sm md:text-base">{stat.label}</p>
+                <p style={{ color: 'rgba(255,255,255,0.8)' }}>{stat.label}</p>
               </motion.div>
             ))}
           </div>
         </div>
+
+        <style>{`
+          @media (max-width: 768px) {
+            section:nth-of-type(6) > div > div:last-child {
+              grid-template-columns: repeat(2, 1fr) !important;
+              gap: 24px !important;
+            }
+            section:nth-of-type(6) > div > div:last-child > div > div:first-child {
+              font-size: 36px !important;
+            }
+          }
+        `}</style>
       </section>
 
       {/* Partners */}
-      <section className="py-12 md:py-16 bg-white">
-        <div className="section-container">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-8"
-          >
-            <p className="text-gray-500 font-medium">Dipercaya oleh</p>
-          </motion.div>
-
-          <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10">
+      <section style={{ padding: '60px 20px', background: 'white' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', textAlign: 'center' }}>
+          <p style={{ color: '#6B7280', fontWeight: 500, marginBottom: '32px' }}>Dipercaya oleh</p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '32px' }}>
             {partners.map((partner, index) => (
-              <motion.div
+              <motion.span
                 key={partner}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: index * 0.05 }}
                 viewport={{ once: true }}
-                className="text-gray-400 font-bold text-sm md:text-lg hover:text-gray-600 transition-colors"
+                style={{ color: '#9CA3AF', fontWeight: 700, fontSize: '16px' }}
               >
                 {partner}
-              </motion.div>
+              </motion.span>
             ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-20" style={{ background: 'linear-gradient(135deg, #FFFBEB 0%, #F5F3FF 100%)' }}>
-        <div className="section-container">
-          <div className="max-w-3xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <motion.div
-                animate={{ scale: [1, 1.1, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="text-5xl md:text-6xl mb-6"
-              >
-                🚀
-              </motion.div>
-              <h2 className="font-nunito text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-4">
-                Siap Mulai <span className="gradient-text">Perjalanan Bisnismu?</span>
-              </h2>
-              <p className="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">
-                Join komunitas kami sekarang dan dapatkan akses ke resources, mentors, dan network yang akan membantu bisnismu bertumbuh.
-              </p>
+      <section style={{ padding: '80px 20px', background: 'linear-gradient(135deg, #FFFBEB 0%, #F5F3FF 100%)' }}>
+        <div style={{ maxWidth: '700px', margin: '0 auto', textAlign: 'center' }}>
+          <motion.div
+            animate={{ scale: [1, 1.1, 1] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            style={{ fontSize: '64px', marginBottom: '24px' }}
+          >
+            🚀
+          </motion.div>
+          <h2 style={{ fontFamily: 'Nunito', fontSize: '40px', fontWeight: 900, color: '#1F2937', marginBottom: '16px' }}>
+            Siap Mulai <span className="gradient-text">Perjalanan Bisnismu?</span>
+          </h2>
+          <p style={{ color: '#6B7280', fontSize: '18px', marginBottom: '32px', lineHeight: 1.7 }}>
+            Join komunitas kami sekarang dan dapatkan akses ke resources, mentors, dan network yang akan membantu bisnismu bertumbuh.
+          </p>
 
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault()
-                  alert('Selamat! Kamu akan segera menerima email untuk bergabung dengan komunitas DEU!')
+          <form
+            onSubmit={(e) => {
+              e.preventDefault()
+              alert('Selamat! Kamu akan segera menerima email untuk bergabung dengan komunitas DEU!')
+            }}
+            style={{ maxWidth: '450px', margin: '0 auto' }}
+          >
+            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', justifyContent: 'center' }}>
+              <input
+                type="email"
+                placeholder="Email kamu"
+                required
+                style={{
+                  flex: '1 1 200px', padding: '16px 24px', borderRadius: '50px',
+                  border: '2px solid #FDE68A', fontSize: '16px', outline: 'none'
                 }}
-                className="max-w-md mx-auto"
-              >
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <input
-                    type="email"
-                    placeholder="Email kamu"
-                    required
-                    className="flex-grow px-6 py-4 rounded-full border-2 border-amber-200 focus:border-amber-500 focus:outline-none text-gray-800"
-                  />
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    type="submit"
-                    className="btn-primary whitespace-nowrap"
-                  >
-                    Join Gratis!
-                  </motion.button>
-                </div>
-                <p className="text-gray-500 text-sm mt-4 flex items-center justify-center gap-1">
-                  <Heart size={14} className="text-red-500" />
-                  100% gratis, tanpa spam, bisa unsubscribe kapan saja
-                </p>
-              </form>
-            </motion.div>
-          </div>
+              />
+              <button type="submit" className="btn-primary">
+                Join Gratis!
+              </button>
+            </div>
+            <p style={{ color: '#6B7280', fontSize: '13px', marginTop: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '4px' }}>
+              <Heart size={14} style={{ color: '#EF4444' }} />
+              100% gratis, tanpa spam, bisa unsubscribe kapan saja
+            </p>
+          </form>
         </div>
       </section>
     </div>
